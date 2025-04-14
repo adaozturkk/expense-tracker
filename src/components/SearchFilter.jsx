@@ -50,12 +50,12 @@ const SearchFilter = ({
     }
 
     // Filter date range
-    if (startDate !== "") {
+    if (startDate) {
       filtered = filtered.filter(
         (transaction) => new Date(transaction.date) >= new Date(startDate)
       );
     }
-    if (endDate !== "") {
+    if (endDate) {
       filtered = filtered.filter(
         (transaction) => new Date(transaction.date) <= new Date(endDate)
       );
@@ -170,6 +170,7 @@ const SearchFilter = ({
                       <option value="All Categories">All Categories</option>
                       <option value="House">House</option>
                       <option value="Transportation">Transportation</option>
+                      <option value="Shopping">Shopping</option>
                       <option value="Food">Food</option>
                       <option value="Bills">Bills</option>
                       <option value="Healthcare">Healthcare</option>

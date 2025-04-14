@@ -42,7 +42,7 @@ const AddTransaction = ({
       // Reset the form
       setDesc("");
       setType("Expense");
-      setCategory("Housing");
+      setCategory("House");
       setAmount("");
       setDate(null);
 
@@ -55,7 +55,7 @@ const AddTransaction = ({
   useEffect(() => {
     setDesc("");
     setType("Expense");
-    setCategory("Housing");
+    setCategory("House");
     setAmount("");
     setDate(null);
   }, []);

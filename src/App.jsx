@@ -12,13 +12,13 @@ function App() {
   const [type, setType] = useState("Expense");
 
   // State for category
-  const [category, setCategory] = useState("Housing");
+  const [category, setCategory] = useState("House");
 
   // State for amount
   const [amount, setAmount] = useState(0);
 
   // State for date
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
 
   // State for getting transactions from local storage
   const [transactions, setTransactions] = useState(() => {
