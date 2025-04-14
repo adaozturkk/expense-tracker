@@ -60,6 +60,15 @@ const AddTransaction = ({
     setDate(null);
   }, []);
 
+  // Update category when type changes
+  useEffect(() => {
+    if (type === "Expense") {
+      setCategory("House"); // Default category for expense
+    } else if (type === "Income") {
+      setCategory("Salary"); // Default category for income
+    }
+  }, [type, setCategory]);
+
   // Navigate to home page
   useEffect(() => {
     if (proceedHome) {
