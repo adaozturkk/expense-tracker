@@ -44,7 +44,7 @@ const AddTransaction = ({
       setType("Expense");
       setCategory("Housing");
       setAmount("");
-      setDate("");
+      setDate(null);
 
       // Proceed to the home page
       setProceedHome(true);
@@ -57,7 +57,7 @@ const AddTransaction = ({
     setType("Expense");
     setCategory("Housing");
     setAmount("");
-    setDate("");
+    setDate(null);
   }, []);
 
   // Navigate to home page
@@ -147,7 +147,7 @@ const AddTransaction = ({
             {/* Set date */}
             <input
               type="date"
-              value={date}
+              value={date || ""}
               onChange={(e) => setDate(e.target.value)}
               aria-label="Setting transaction date"
               required

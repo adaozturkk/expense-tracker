@@ -66,7 +66,7 @@ const EditTransaction = ({
       setType("Expense");
       setCategory("Housing");
       setAmount("");
-      setDate("");
+      setDate(null);
 
       // Navigate to the home page
       navigate("/");

@@ -19,7 +19,7 @@ const Home = ({
       {/* Header component */}
       <Header />
 
-      <div className="py-8 flex flex-col justify-center items-center gap-4">
+      <div className="py-8 2xl:py-16 flex flex-col justify-center items-center gap-4">
         <h1 className="text-3xl sm:text-4xl font-medium">Expense Tracker</h1>
 
         {/* Budget component */}

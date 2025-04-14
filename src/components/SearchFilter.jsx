@@ -15,10 +15,10 @@ const SearchFilter = ({
   const [filterSort, setFilterSort] = useState("DateDesc");
 
   // State for start date
-  const [startDate, setStartDate] = useState("");
+  const [startDate, setStartDate] = useState(null);
 
   // State for end date
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState(null);
 
   // State for search
   const [search, setSearch] = useState("");
@@ -168,11 +168,12 @@ const SearchFilter = ({
                   return (
                     <>
                       <option value="All Categories">All Categories</option>
-                      <option value="Housing">Housing</option>
+                      <option value="House">House</option>
                       <option value="Transportation">Transportation</option>
                       <option value="Food">Food</option>
-                      <option value="Utilities">Utilities</option>
+                      <option value="Bills">Bills</option>
                       <option value="Healthcare">Healthcare</option>
+                      <option value="Travel">Travel</option>
                       <option value="Entertainment">Entertainment</option>
                       <option value="Other Expense">Other Expense</option>
                       <option value="Salary">Salary</option>
@@ -208,7 +209,7 @@ const SearchFilter = ({
           <div className="flex-1 max-w-[200px]">
             <input
               type="date"
-              value={startDate}
+              value={startDate || ""}
               onChange={(e) => setStartDate(e.target.value)}
               className="input dark:[color-scheme:dark]"
               aria-label="Transaction start date"
@@ -219,7 +220,7 @@ const SearchFilter = ({
           <div className="flex-1 max-w-[200px]">
             <input
               type="date"
-              value={endDate}
+              value={endDate || ""}
               onChange={(e) => setEndDate(e.target.value)}
               className="input dark:[color-scheme:dark]"
               aria-label="Transaction end date"

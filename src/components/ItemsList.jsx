@@ -27,9 +27,7 @@ const ItemsList = ({ transactions, setTransactions, filterTransactions }) => {
       ) : (
         // If there are no transactions, show a message
         <p className="col-span-full text-center text-lg font-medium">
-          No transactions found
-          <br />
-          Get started by adding a new transaction
+          No transactions found.
         </p>
       )}
     </div>
