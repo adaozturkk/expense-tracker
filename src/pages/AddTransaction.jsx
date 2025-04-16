@@ -100,47 +100,81 @@ const AddTransaction = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
             {/* Set type */}
-            <select
-              value={type}
-              aria-label="Setting transaction type"
-              onChange={(e) => setType(e.target.value)}
-              required
-              className="input"
-            >
-              <option value="Expense">Expense</option>
-              <option value="Income">Income</option>
-            </select>
+            <div className="relative">
+              <select
+                value={type}
+                aria-label="Setting transaction type"
+                onChange={(e) => setType(e.target.value)}
+                required
+                className="input"
+              >
+                <option value="Expense">Expense</option>
+                <option value="Income">Income</option>
+              </select>
+
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5 text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
 
             {/* Set category */}
-            <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              aria-label="Setting transaction category"
-              required
-              className="input"
-            >
-              {type === "Expense" ? (
-                <>
-                  <option value="House">House</option>
-                  <option value="Transportation">Transportation</option>
-                  <option value="Shopping">Shopping</option>
-                  <option value="Food">Food</option>
-                  <option value="Bills">Bills</option>
-                  <option value="Healthcare">Healthcare</option>
-                  <option value="Travel">Travel</option>
-                  <option value="Entertainment">Entertainment</option>
-                  <option value="Other Expense">Other Expense</option>
-                </>
-              ) : (
-                <>
-                  <option value="Salary">Salary</option>
-                  <option value="Investment">Investment</option>
-                  <option value="Freelance">Freelance</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Other Income">Other Income</option>
-                </>
-              )}
-            </select>
+            <div className="relative">
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                aria-label="Setting transaction category"
+                required
+                className="input"
+              >
+                {type === "Expense" ? (
+                  <>
+                    <option value="House">House</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Food">Food</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other Expense">Other Expense</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="Salary">Salary</option>
+                    <option value="Investment">Investment</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Other Income">Other Income</option>
+                  </>
+                )}
+              </select>
+
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5 text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
 
             {/* Set amount */}
             <input
