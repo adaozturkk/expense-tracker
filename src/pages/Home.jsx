@@ -15,7 +15,7 @@ const Home = ({
   const [showCharts, setShowCharts] = useState(false);
 
   return (
-    <main className="font-poppins bg-gray-50 w-full min-h-screen text-gray-900 dark:bg-gray-900 dark:text-gray-50 transition-all">
+    <main className="font-poppins bg-gray-50 dark:bg-gray-900 w-full min-h-screen text-gray-900 dark:text-gray-50 transition">
       {/* Header component */}
       <Header />
 

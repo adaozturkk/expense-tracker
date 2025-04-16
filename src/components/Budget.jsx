@@ -27,7 +27,7 @@ const Budget = ({ filterTransactions }) => {
         <p className="text-lg font-medium" aria-label="Total income">
           Income
         </p>
-        <p className="text-green-700 font-semibold dark:text-green-600 transition-colors">
+        <p className="text-green-700 dark:text-green-600 font-semibold  transition-colors">
           ${formatAmount(income)}
         </p>
       </div>
@@ -37,7 +37,7 @@ const Budget = ({ filterTransactions }) => {
         <p className="text-lg font-medium" aria-label="Total expense">
           Expense
         </p>
-        <p className="text-red-600 font-semibold dark:text-red-500 transition-colors">
+        <p className="text-red-600 dark:text-red-500 font-semibold transition-colors">
           ${formatAmount(Math.abs(expense))}
         </p>
       </div>

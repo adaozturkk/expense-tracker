@@ -74,7 +74,7 @@ const EditTransaction = ({
   };
 
   return (
-    <div className="font-poppins bg-gray-50 w-full min-h-screen text-gray-900 dark:bg-gray-900 dark:text-gray-50 transition-all relative">
+    <div className="font-poppins bg-gray-50 dark:bg-gray-900 w-full min-h-screen text-gray-900 dark:text-gray-50 transition relative">
       {/* Header component */}
       <Header />
 

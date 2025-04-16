@@ -205,7 +205,7 @@ const SearchFilter = ({
         </div>
 
         {/* Date Range */}
-        <div className="flex col-span-full justify-center gap-2">
+        <div className="flex col-span-full justify-center items-center gap-2">
           {/* Start date */}
           <div className="flex-1 max-w-[200px]">
             <input
@@ -216,6 +216,8 @@ const SearchFilter = ({
               aria-label="Transaction start date"
             />
           </div>
+
+          <p>to</p>
 
           {/* End date */}
           <div className="flex-1 max-w-[200px]">

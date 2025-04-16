@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className="pt-6 mx-4 flex items-center justify-center">
-      <ul className="flex items-center justify-center gap-6 sm:gap-8 border py-4 px-12 sm:px-16 rounded-full shadow-lg hover:shadow-xl transition-all dark:shadow-gray-800 dark:border-gray-800 dark:shadow-md dark:hover:shadow-lg">
+      <ul className="flex items-center justify-center gap-6 sm:gap-8 border py-4 px-12 sm:px-16 rounded-full shadow-lg hover:shadow-xl transition dark:shadow-gray-800 dark:border-gray-800 dark:shadow-md dark:hover:shadow-lg">
         {/* Home link */}
         <li className="cursor-pointer" aria-label="Go to home page">
           <Link to="/">Home</Link>
