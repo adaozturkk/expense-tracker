@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const SearchFilter = ({
   transactions,
@@ -52,12 +54,16 @@ const SearchFilter = ({
     // Filter date range
     if (startDate) {
       filtered = filtered.filter(
-        (transaction) => new Date(transaction.date) >= new Date(startDate)
+        (transaction) =>
+          transaction.date && new Date(transaction.date) >= new Date(startDate)
       );
     }
     if (endDate) {
+      const inclusiveEndDate = new Date(endDate).setHours(23, 59, 59, 999); // Inclusive for end date too
+      
       filtered = filtered.filter(
-        (transaction) => new Date(transaction.date) <= new Date(endDate)
+        (transaction) =>
+          transaction.date && new Date(transaction.date) <= inclusiveEndDate
       );
     }
 
@@ -95,7 +101,7 @@ const SearchFilter = ({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search transaction..."
-          className="input pl-10 pr-4 placeholder:text-gray-600 dark:placeholder:text-gray-300"
+          className="input pl-10 pr-4"
         />
 
         {/* Search icon */}
@@ -252,25 +258,70 @@ const SearchFilter = ({
         {/* Date Range */}
         <div className="flex col-span-full justify-center items-center gap-2">
           {/* Start date */}
-          <div className="flex-1 max-w-[200px]">
-            <input
-              type="date"
-              value={startDate || ""}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="input dark:[color-scheme:dark]"
-              aria-label="Transaction start date"
+          <div className="flex-1 max-w-[200px] relative">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+              className="input pl-8"
+              dateFormat="dd.MM.yyyy"
+              placeholderText="Start date"
+              calendarClassName="dark:!bg-gray-600"
+              isClearable={true}
             />
+
+            <svg
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path>
+              </g>
+            </svg>
           </div>
 
           {/* End date */}
-          <div className="flex-1 max-w-[200px]">
-            <input
-              type="date"
-              value={endDate || ""}
-              onChange={(e) => setEndDate(e.target.value)}
-              className="input dark:[color-scheme:dark]"
-              aria-label="Transaction end date"
+          <div className="flex-1 max-w-[200px] relative">
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+              className="input pl-8"
+              dateFormat="dd.MM.yyyy"
+              placeholderText="End date"
+              calendarClassName="dark:!bg-gray-600"
+              isClearable={true}
             />
+
+            <svg
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path>
+              </g>
+            </svg>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { checkValidInput } from "../utils/checkValidInput";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddTransaction = ({
   desc,
@@ -31,7 +33,7 @@ const AddTransaction = ({
       type: type,
       category: category,
       amount: parseFloat(amount),
-      date: date,
+      date: date ? formatDateToLocal(date) : null,
     };
 
     // Check if the input is valid
@@ -49,6 +51,13 @@ const AddTransaction = ({
       // Proceed to the home page
       setProceedHome(true);
     }
+  };
+
+  // Format date to local time zone
+  const formatDateToLocal = (date) => {
+    return new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+      .toISOString()
+      .split("T")[0];
   };
 
   // Reset form
@@ -95,7 +104,7 @@ const AddTransaction = ({
             aria-label="Setting transaction description"
             onChange={(e) => setDesc(e.target.value)}
             placeholder="Description(optional)"
-            className="input mb-3 placeholder:text-gray-600 dark:placeholder:text-gray-300"
+            className="input mb-3"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
@@ -184,18 +193,38 @@ const AddTransaction = ({
               aria-label="Setting transaction amount"
               placeholder="Amount"
               required
-              className="input placeholder:text-gray-600 dark:placeholder:text-gray-300"
+              className="input"
             />
 
             {/* Set date */}
-            <input
-              type="date"
-              value={date || ""}
-              onChange={(e) => setDate(e.target.value)}
-              aria-label="Setting transaction date"
-              required
-              className="input dark:[color-scheme:dark]"
-            />
+            <div className="relative w-full">
+              <DatePicker
+                className="input pl-8"
+                selected={date}
+                onChange={(date) => setDate(date)}
+                dateFormat="dd.MM.yyyy"
+                placeholderText="Date"
+                calendarClassName="dark:!bg-gray-600"
+                isClearable={true}
+              />
+
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path>
+                </g>
+              </svg>
+            </div>
           </div>
 
           {/* Add transaction button */}
