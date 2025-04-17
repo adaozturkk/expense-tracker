@@ -256,9 +256,9 @@ const SearchFilter = ({
         </div>
 
         {/* Date Range */}
-        <div className="flex col-span-full justify-center items-center gap-2">
+        <div className="flex flex-col sm:flex-row col-span-full justify-center items-center gap-2">
           {/* Start date */}
-          <div className="flex-1 max-w-[200px] relative">
+          <div className="flex-1 w-full sm:max-w-[200px] relative">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
@@ -291,7 +291,7 @@ const SearchFilter = ({
           </div>
 
           {/* End date */}
-          <div className="flex-1 max-w-[200px] relative">
+          <div className="flex-1 w-full sm:max-w-[200px] relative">
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date)}
